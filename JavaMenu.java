@@ -27,16 +27,12 @@ public class JavaMenu extends JFrame {
         super("CSC372 Module 3 Menu");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // create text area for text box
         setSize(600, 600);
         text = new JTextArea(20, 40);
         text.setLineWrap(true);
 
-        // place text in scroll pane
         JScrollPane scroll = new JScrollPane(text);
         add(scroll);
-
-        // main menu bar
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -47,7 +43,7 @@ public class JavaMenu extends JFrame {
         dateTime.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss\n").format(new Date());
+                String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
                 text.append("Current Date and Time: " + timestamp + "\n");
             }
         });
@@ -77,7 +73,7 @@ public class JavaMenu extends JFrame {
                 Color greenHue = Color.getHSBColor(randomHue, 1.0f, 1.0f);
 
                 text.setBackground(greenHue);
-                changeColor.setText("Changed to random hue: " + String.format("%.3f\n", randomHue));
+                text.append("Changed to random hue: " + String.format("%.3f\n", randomHue));
 
             }
         });
